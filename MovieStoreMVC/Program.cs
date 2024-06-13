@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using MovieStoreMVC.Models;
+using MovieStoreMVC.Services;
+using System.Configuration;
+
 namespace MovieStoreMVC
 {
     public class Program
@@ -8,6 +14,9 @@ namespace MovieStoreMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+
 
             var app = builder.Build();
 
@@ -34,3 +43,46 @@ namespace MovieStoreMVC
         }
     }
 }
+//Register the context in Startup.cs:
+//public void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddDbContext<MovieStoreContext>(options =>
+//        options.UseSqlServer(Configuration.GetConnectionString("MovieStoreContext")));
+//    services.AddControllersWithViews();
+//}
+//public void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddDbContext<MovieStoreContext>(options =>
+//        options.UseSqlServer(Configuration.GetConnectionString("MovieStoreContext")));
+//    services.AddScoped<ShoppingCartService>();
+//    services.AddHttpContextAccessor();
+//    services.AddSession();
+//    services.AddControllersWithViews();
+//}
+
+//public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+//{
+//    if (env.IsDevelopment())
+//    {
+//        app.UseDeveloperExceptionPage();
+//    }
+//    else
+//    {
+//        app.UseExceptionHandler("/Home/Error");
+//        app.UseHsts();
+//    }
+//    app.UseHttpsRedirection();
+//    app.UseStaticFiles();
+
+//    app.UseRouting();
+
+//    app.UseAuthorization();
+//    app.UseSession();
+
+//    app.UseEndpoints(endpoints =>
+//    {
+//        endpoints.MapControllerRoute(
+//            name: "default",
+//            pattern: "{controller=Home}/{action=Index}/{id?}");
+//    });
+//}

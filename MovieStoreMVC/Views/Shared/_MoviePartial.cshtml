@@ -1,0 +1,23 @@
+﻿@model MovieStoreMVC.Models.Movie
+
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" class="card-img" alt="@Model.Title" />
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-text"><strong>Director:</strong> @Model.Director</p>
+                <p class="card-text"><strong>Release Year:</strong> @Model.Year</p>
+                <p class="card-text"><strong>Price:</strong> $@Model.Price</p>
+                <form method="post" asp-action="AddToCart" asp-route-id="@Model.MovieId">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
