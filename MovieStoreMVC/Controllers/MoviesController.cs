@@ -137,29 +137,29 @@ namespace MovieStoreMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        [HttpPost]
-        public IActionResult AddToCart(int id)
-        {
-            var movie = _context.Movies.Find(id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
+        //[HttpPost]
+        //public IActionResult AddToCart(int id)
+        //{
+        //    var movie = _context.Movies.Find(id);
+        //    if (movie == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _shoppingCartService.AddToCart(id);
-            return RedirectToAction(nameof(Index));
-        }
-        public IActionResult Cart()
-        {
-            var cartItems = _shoppingCartService.GetCart();
-            var movies = _context.Movies.Where(m => cartItems.Select(c => c.MovieId).Contains(m.MovieId)).ToList();
-            var cartViewModel = new CartViewModel
-            {
-                Items = cartItems,
-                Movies = movies
-            };
-            return View(cartViewModel);
-        }
+        //    _shoppingCartService.AddToCart(id);
+        //    return RedirectToAction(nameof(Index));
+        //}
+        //public IActionResult Cart()
+        //{
+        //    var cartItems = _shoppingCartService.GetCart();
+        //    var movies = _context.Movies.Where(m => cartItems.Select(c => c.MovieId).Contains(m.MovieId)).ToList();
+        //    var cartViewModel = new CartViewModel
+        //    {
+        //        Items = cartItems,
+        //        Movies = movies
+        //    };
+        //    return View(cartViewModel);
+        //}
 
         private bool MovieExists(int id)
         {
